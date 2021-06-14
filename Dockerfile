@@ -6,6 +6,7 @@ COPY package.json /app
 RUN npm install
 COPY . /app
 RUN npm run build --prod
+COPY dest/dist/user-portal-app /app
 
 # Stage 2
 FROM nginx:alpine
