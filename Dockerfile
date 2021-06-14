@@ -11,5 +11,5 @@ RUN npm run build --prod
 FROM nginx:alpine
 RUN rm /etc/nginx/conf.d/default.conf
 RUN rm /etc/nginx/nginx.conf
-COPY /app/dist/user-portal-app /usr/share/nginx/html
+COPY dist/user-portal-app /usr/share/nginx/html
 COPY nginx.conf /etc/nginx
