@@ -6,11 +6,10 @@ COPY package.json /app
 RUN npm install
 COPY . /app
 RUN npm run build --prod
-COPY /dist/user-portal-app /app
 
 # Stage 2
 FROM nginx:alpine
 RUN rm /etc/nginx/conf.d/default.conf
 RUN rm /etc/nginx/nginx.conf
-COPY /dist/user-portal-app /usr/share/nginx/html
+COPY /app/dist/user-portal-app /usr/share/nginx/html
 COPY nginx.conf /etc/nginx
